@@ -29,7 +29,7 @@ const PhotoList = ({ navigation }) => {
       <SafeAreaView style={styles.containerScroll}>
         <ScrollView style={styles.scrollView}>
           <View style={styles.cardContainer}>
-          {photos.map(({urls,user,description,id}) =>
+          {photos.map(({urls,user,id}) =>
             <TouchableWithoutFeedback  key={id} onPress={() => onPress(id)}>
               <View style={styles.imageContainer} > 
                   <Image style={styles.image}  source={{ uri: urls.regular }} />
@@ -98,10 +98,6 @@ const styles = StyleSheet.create({
   contactContainer: {
     marginLeft: "auto",
     marginRight: "auto",
-  },
-  paragraph: {
-    fontSize: 10,
-    color: "white"
   },
   button: {
     color: "white",
