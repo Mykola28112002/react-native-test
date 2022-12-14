@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPhotos } from "./operations";
-import { fetchPhotosId } from "./operations";
+import { fetchPhotos,fetchPhotosId } from "./operations";
 
 export const slice = createSlice({
     name: "imagesList",

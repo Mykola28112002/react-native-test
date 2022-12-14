@@ -3,8 +3,7 @@ import { Button, Image, View, StyleSheet, StatusBar, ScrollView, SafeAreaView, T
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPhotos,fetchPhotosId } from "../redux/operations";
 import { selectPhotos } from "../redux/selectors";
-import { Title, Paragraph } from 'react-native-paper';
-
+import { Title } from 'react-native-paper';
 
 const PhotoList = ({ navigation }) => {
   const [page, setPage] = useState(1);
@@ -20,10 +19,17 @@ const PhotoList = ({ navigation }) => {
   const onPressLearnMore = () => {
     setPage(page+1)
   }
+  const onPressLearnBack = () => {
+    setPage(page-1)
+  }
+  
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
 
   const photos = useSelector(selectPhotos);
   return (
-    <View onPress={() => navigation.navigate("PhotoItem")} style={styles.container}>
+     <View style={styles.container}>
       <SafeAreaView style={styles.containerScroll}>
         <ScrollView style={styles.scrollView}>
           <View style={styles.cardContainer}>
@@ -38,7 +44,14 @@ const PhotoList = ({ navigation }) => {
             </TouchableWithoutFeedback>
             )}
           </View>
-          <Button style={styles.goButton} title="go" onPress={onPressLearnMore}/>
+          <View style={styles.buttonBox}>
+            <View style={styles.button}>
+              <Button title="Back" onPress={onPressLearnBack} />
+            </View>
+            <View style={styles.button}>
+              <Button title="Go" onPress={onPressLearnMore}/>
+            </View>
+          </View>
       </ScrollView>
       </SafeAreaView>
     </View>
@@ -51,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    height: "auto"
   },
   scrollView: {
     marginHorizontal: 20,
@@ -61,17 +75,18 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 148,
-    height: 130,
+    height: 135,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
   imageContainer: {
-    height: 170,
+    height: 160,
     width: 150,
     margin: 10,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: "white"
+    borderColor: "white",
+    backgroundColor: "#404040"
   },
   cardContainer: {
     flex: 1,
@@ -80,7 +95,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 10,
-    color: "white"
+    color: "white",
+    padding: 0,
+    marginTop: -5,
   },
   contactContainer: {
     marginLeft: "auto",
@@ -90,10 +107,22 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "white"
   },
-  goButton: {
-    color: "black"
+  button: {
+    color: "white",
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 10,
+    margin: 10,
+    width: 60
+  },
+  buttonBox: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: "center"
   }
+
 });
+
 
 
 export default PhotoList;

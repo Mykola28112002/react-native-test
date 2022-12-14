@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { TouchableWithoutFeedback,Image, View, StyleSheet, Text, Button } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import React from "react";
+import { TouchableWithoutFeedback,Image, View, StyleSheet} from "react-native";
 import { selectPhotoId,selectPhotos } from "../redux/selectors";
 import { useSelector } from "react-redux";
 
