@@ -1,17 +1,40 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {} from "react-native";
+import PhotoList from './screens/PhotoList'; 
+import PhotoItem from './screens/PhotoItem'; 
+import { Provider } from 'react-redux';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { store } from './redux/store';
+
+const Stack = createStackNavigator();
+
 
 const App = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
-      <Text>Hello, world!</Text>
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+      <Stack.Navigator initialRouteName='PhotoList'>
+        <Stack.Screen options={{
+          headerShown: false
+        }}
+          name="PhotoList"
+          component={PhotoList }
+        />
+        
+        <Stack.Screen options={{
+          headerShown: false
+        }}
+          name='PhotoItem'
+          component={PhotoItem}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+    </Provider>
   )
 }
+
 export default App;
+
+
 
