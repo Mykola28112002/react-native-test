@@ -22,10 +22,6 @@ const PhotoList = ({ navigation }) => {
   const onPressLearnBack = () => {
     setPage(page-1)
   }
-  
-  const [searchQuery, setSearchQuery] = React.useState('');
-
-  const onChangeSearch = query => setSearchQuery(query);
 
   const photos = useSelector(selectPhotos);
   return (
