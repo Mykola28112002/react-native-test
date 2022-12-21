@@ -14,7 +14,7 @@ export const fetchPhotos = createAsyncThunk(
         URLSearchParams({
           client_id: API_CEY,
           page: page,
-          per_page: 10
+          per_page: 8
       });
       const response = await axios.get(`/?${params}`);
       return response.data;
