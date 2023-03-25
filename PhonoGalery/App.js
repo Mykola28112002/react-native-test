@@ -1,11 +1,11 @@
 import React from 'react';
 import {} from "react-native";
-import PhotoList from './screens/PhotoList'; 
-import PhotoItem from './screens/PhotoItem'; 
+import PhotoList from './src/screens/PhotoList'; 
+import PhotoItem from './src/screens/PhotoItem'; 
 import { Provider } from 'react-redux';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { store } from './redux/store';
+import { store } from './src/redux/store';
 
 const Stack = createStackNavigator();
 

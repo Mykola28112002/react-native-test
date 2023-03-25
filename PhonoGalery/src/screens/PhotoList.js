@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Image, View, StyleSheet, StatusBar, ScrollView, SafeAreaView, TouchableWithoutFeedback} from "react-native";
+import { Image, View, StyleSheet, StatusBar, ScrollView, SafeAreaView, TouchableWithoutFeedback, TouchableOpacity, Text} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPhotos,fetchPhotosId } from "../redux/operations";
 import { selectPhotos } from "../redux/selectors";
@@ -42,10 +42,10 @@ const PhotoList = ({ navigation }) => {
           </View>
           <View style={styles.buttonBox}>
             <View style={styles.button}>
-              <Button title="Back" onPress={onPressLearnBack} />
+              <TouchableOpacity onPress={onPressLearnBack}><Text style={styles.text}>Back</Text></TouchableOpacity>
             </View>
             <View style={styles.button}>
-              <Button title="Go" onPress={onPressLearnMore}/>
+              <TouchableOpacity onPress={onPressLearnMore}><Text style={styles.text}>Go</Text></TouchableOpacity>
             </View>
           </View>
       </ScrollView>
@@ -105,12 +105,18 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderRadius: 10,
     margin: 10,
-    width: 60
+    width: 60,
+    height: 20,
+    flexDirection: 'row',
+    justifyContent: "center"
   },
   buttonBox: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: "center"
+  },
+  text: {
+    color: '#fff'
   }
 
 });
